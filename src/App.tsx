@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {tagsApi} from "./shared/api";
 
 function App() {
+  useEffect(() => {
+    tagsApi.getTags().then((resp) => console.log(resp)).catch((e) => console.log("got error", e))
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
