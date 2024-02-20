@@ -12,6 +12,8 @@ export type GetTagByIDParams = {
     [x: string]: any;
 }
 
-export const getTagsByID = ({tagID}: GetTagByIDParams): Promise<Tag> => {
+export const getTagsByID = (
+    {tagID}: GetTagByIDParams
+): Promise<Tag> => {
     return api.get(`${BASE_URL}/${tagID}`)
 }

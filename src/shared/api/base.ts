@@ -63,4 +63,4 @@ class Api {
     }
 }
 
-export const api = new Api(process.env.API_HOST||"http://localhost:8080");
+export const api = new Api("http://hellchicken.ru");
