@@ -1,0 +1,42 @@
+.btn {
+    font-family: 'Californian FB', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    width: 224px;
+    height: 48px;
+}
+
+.btnLight {
+    color: #4a61dd;
+    background-color: #f0f3ff;
+}
+.btnLight:hover {
+    color: #4a61dd;
+    background-color: #d8deff;
+    border: 1px solid transparent;
+}
+
+.btnBlue {
+    background-color: #4a61dd;
+    color: #fff;
+}
+
+.btnBlue:hover {
+    background-color: #2845df;
+    color: #fff;
+}
+
+.btnPressed {
+    background-color: #fff;
+    color: #4a61dd;
+    border: 1px solid #DEE2F2;
+}
+
+.btnPressed:hover {
+    background-color: #f0f3ff;
+    color: #4a61dd;
+}
