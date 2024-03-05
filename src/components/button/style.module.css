@@ -3,21 +3,43 @@
     font-size: 14px;
     font-weight: 600;
     border-radius: 6px;
-    padding: 15px;
+    padding: 0 24px;
     border: none;
     cursor: pointer;
-    width: 224px;
+    width: max-content;
     height: 48px;
+    line-height: 48px;
+    text-decoration: none;
+}
+
+a.btn {
+    display: inline-block;
+}
+
+.btn > svg {
+    margin-right: 10px;
+}
+
+.btn:active {
+    box-shadow: 0 0 5px #ccc;
 }
 
 .btnLight {
     color: #4a61dd;
     background-color: #f0f3ff;
 }
+
 .btnLight:hover {
     color: #4a61dd;
     background-color: #d8deff;
     border: 1px solid transparent;
+}
+
+.btnLightUnsub {
+    color: #4a61dd;
+    background-color: #f0f3ff;
+    width: 312px;
+    height: 48px;
 }
 
 .btnBlue {
