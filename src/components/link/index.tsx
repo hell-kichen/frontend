@@ -4,7 +4,7 @@ import styles from './style.module.css';
 interface LinkComponentProps{
     href: string;
     title: string;
-};
+}
 
 export default function LinkComponent({href, title}: LinkComponentProps){
     return(

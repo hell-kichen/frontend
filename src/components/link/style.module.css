@@ -3,6 +3,7 @@
   transition: opacity 0.2s;
   color: #fff;
 }
+
 .link:hover{
   opacity: 0.8;
 }
