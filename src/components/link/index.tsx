@@ -6,7 +6,7 @@ interface LinkComponentProps{
     title: string;
 }
 
-export default function LinkComponent({href, title}: LinkComponentProps){
+export default function LinkComponent({href, title}: LinkComponentProps) {
     return(
         <a className={styles.link} href={href}>
             {title}

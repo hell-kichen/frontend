@@ -6,7 +6,7 @@ export default function Footer() {
 
     return(
         <footer className={styles.footer}>
-            <LinkComponent href='#' title='Прoдуктовый помощник'/>
+            <LinkComponent href='#' title='Продуктовый помощник'/>
         </footer>
     );
 }
