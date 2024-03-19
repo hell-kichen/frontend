@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './style.module.css';
+import LinkComponent from '../link';
 
 export default function Footer() {
-    const footerClass : string = `${styles.footer}`;
 
     return(
-       <footer className={footerClass}>
-           Продуктовый помощник
-       </footer>
+        <footer className={styles.footer}>
+            <LinkComponent href='#' title='Продуктовый помощник'/>
+        </footer>
     );
 }
