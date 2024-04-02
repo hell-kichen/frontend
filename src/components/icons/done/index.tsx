@@ -1,10 +1,6 @@
 import React from "react";
 
-interface DoneIconProps {
-    props?: string;
-}
-
-const Done: React.FC<DoneIconProps> = ({ props }) => {
+export default function Done ({ props } : { props?: string }) {
     return (
         <svg
             width={16}
@@ -22,5 +18,3 @@ const Done: React.FC<DoneIconProps> = ({ props }) => {
         </svg>
     );
 }
-
-export default Done;
