@@ -3,9 +3,12 @@ import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {tagsApi} from "./shared/api";
-import Button from "./components/button";
-import Icons from "./components/icons";
-import Checkbox from "./components/checkbox";
+import Button from "./ui/button";
+import Icons from "./ui/icons";
+import Checkbox from "./ui/checkbox";
+import Input from "./ui/input";
+import Textarea from "./ui/textarea";
+import Container from "./components/container"
 
 function App() {
     useEffect(() => {
@@ -26,6 +29,13 @@ function App() {
     const [lunchChecked, setLunchChecked] = useState(false);
     const [dinnerChecked, setDinnerChecked] = useState(false);
 
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(e.target.value);
+    };
+    const handleChangeTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        console.log('Textarea value changed:', e.target.value);
+    };
     return (
         <>
             <Checkbox
@@ -63,6 +73,16 @@ function App() {
                 {buttonState3 ? "Отписаться от автора" : "Подписаться на автора"}
             </Button>
             <Button btnStyle="btnLightUnsub">Отписаться</Button>
+
+            <Container>
+                <Input
+                    onChange={handleChange}
+                    label="Введите что-нибудь"
+                    value=""
+                />
+                <Textarea label="Введите что-нибудь" onChange={handleChangeTextarea}></Textarea>
+            </Container>
+
         </>
     );
 }
