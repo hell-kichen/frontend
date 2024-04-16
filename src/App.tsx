@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -9,6 +8,7 @@ import Checkbox from "./ui/checkbox";
 import Input from "./ui/input";
 import Textarea from "./ui/textarea";
 import Container from "./components/container"
+import FileInput from "./ui/file-input";
 
 function App() {
     useEffect(() => {
@@ -36,6 +36,11 @@ function App() {
     const handleChangeTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         console.log('Textarea value changed:', e.target.value);
     };
+
+    const handleFileChange = (file: string | ArrayBuffer | null) => {
+        console.log('Selected file:', file);
+    };
+
     return (
         <>
             <Checkbox
@@ -82,7 +87,12 @@ function App() {
                 />
                 <Textarea label="Введите что-нибудь" onChange={handleChangeTextarea}></Textarea>
             </Container>
-
+            <div>
+                <FileInput
+                    label="Выберите файл:"
+                    onChange={handleFileChange}
+                />
+            </div>
         </>
     );
 }
