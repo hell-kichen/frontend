@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.module.css';
-import LinkComponent from '../link';
+import LinkComponent from '../../ui/link';
 
 export default function Footer() {
 

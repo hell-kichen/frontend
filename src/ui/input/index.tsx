@@ -43,7 +43,6 @@ export default function Input({
         }
     }, [value]);
 
-    // Функция для объединения классов
     const mergeClasses = (...classes: (string | undefined)[]) => {
         return classes.filter(Boolean).join(' ');
     };
