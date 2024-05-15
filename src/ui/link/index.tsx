@@ -4,12 +4,13 @@ import styles from './style.module.css';
 interface LinkComponentProps{
     className: any;
     href: string;
-    title: any;
+    title: string;
+    isActive: boolean;
 }
 
-export default function LinkComponent({href, title}: LinkComponentProps) {
+export default function LinkComponent({href, title, isActive}: LinkComponentProps) {
     return(
-        <a className={styles.link} href={href} title="">
+        <a className={isActive ? `${styles.link} ${styles.active}` : styles.link} href={href}>
             {title}
         </a>
     );
