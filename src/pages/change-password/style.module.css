@@ -1,0 +1,13 @@
+.form {
+    margin: 0 auto 50px;
+}
+
+.Info {
+    padding-left: 195px;
+    padding-bottom: 35px;
+    text-align: justify;
+}
+
+.Info p {
+    margin: 0;
+}
