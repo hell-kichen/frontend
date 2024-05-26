@@ -1,5 +1,6 @@
 import { Container, Input, Title, Main, Form, Button } from '../../ui'
 import styles from './style.module.css'
+import React from "react";
 
 export default function ChangePassword() {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +16,7 @@ export default function ChangePassword() {
                 <Title>Изменить пароль</Title>
                 <Form
                     className={styles.form}
-                    onSubmit={e => {
+                    onSubmit={(e: { preventDefault: () => void; }) => {
                         e.preventDefault()
                         console.log(e)
                     }}

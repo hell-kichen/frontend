@@ -3,12 +3,12 @@
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
-    line-height: 17px;
+    /*line-height: 17px;*/
     background: none;
     height: 48px;
     line-height: 48px;
     border-radius: 6px;
-    padding: 0px 24px;
+    padding: 0 24px;
     text-decoration: none;
     border: 1px solid transparent;
     transition: background 0.2s;
@@ -34,15 +34,14 @@
     cursor: pointer;
     font-size: 16px;
     display: inline-block;
-    padding: 0;
     font-weight: 500;
     line-height: 19px;
-    padding-bottom: 14px;
+    padding: 0 0 14px;
     margin-right: 28px;
 }
 
 .menuLink:last-child {
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 .menu {

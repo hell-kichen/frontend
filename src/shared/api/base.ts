@@ -75,4 +75,4 @@ class Api {
 }
 
 
-export const api = new Api("https://hellchicken.ru");
+export const api = new Api(process.env.API_URL || 'http://localhost');

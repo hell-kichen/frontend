@@ -68,8 +68,8 @@
 }
 
 .orders-count {
-    display: inline-block;
-    padding: 0px 12px;
+    /*display: inline-block;*/
+    padding: 0 12px;
     background: #4A61DD;
     color: #FFF;
     font-weight: 500;

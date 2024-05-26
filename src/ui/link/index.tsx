@@ -4,8 +4,8 @@ import styles from './style.module.css';
 interface LinkComponentProps {
     className?: any;
     href: string;
-    title: string;
-    isActive: boolean;
+    title: any;
+    isActive?: boolean;
 }
 
 

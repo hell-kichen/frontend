@@ -24,7 +24,7 @@
 }
 
 .single-card__button:last-child {
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 .single-card__edit {
@@ -83,7 +83,7 @@
     }
 
     .single-card__edit {
-        margin-left: 0px;
+        margin-left: 0;
         margin-top: 20px;
         display: inline-block;
     }
@@ -93,7 +93,7 @@
     }
 
     .single-card__info {
-        padding-left: 0px;
+        padding-left: 0;
     }
 
     .single-card__image {
