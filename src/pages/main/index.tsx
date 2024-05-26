@@ -20,7 +20,6 @@ const MainPage = () => {
     useEffect(() => {
         tagsApi.getTags().then((resp) => {
             setTagsValue(tags.map((tag: { id: string; value: boolean }) => ({...tag, value: true})))
-            console.log(resp);
         }).catch((error) => {
             console.log('Ошибка при получении тэгов:', error);
         })
