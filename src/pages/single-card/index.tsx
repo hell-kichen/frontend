@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Button, Container, Icons, LinkComponent, Main} from "../../ui";
+import {TagsContainer} from "../../components";
 import Description from "./description";
 import Ingredients from "./ingredients";
 import styles from "./style.module.css";
@@ -48,6 +49,7 @@ export default function SingleCard() {
                                 {is_favorited ? <Icons.StarBigActiveIcon/> : <Icons.StarBigIcon/>}
                             </Button>
                         </div>
+                        <TagsContainer tags={tags}/>
                         <div>
                             <p className={styles['single-card__text']}><Icons.ClockIcon/> {cooking_time} мин.</p>
                             <p className={styles['single-card__text_with_link']}>
