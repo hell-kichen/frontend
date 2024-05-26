@@ -1,3 +1,9 @@
 .main {
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 217px);
+}
+
+@media screen and (max-width: 770px) {
+    .main {
+        min-height: calc(100vh - 170px);
+    }
 }
