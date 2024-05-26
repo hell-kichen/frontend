@@ -1,7 +1,6 @@
 .link {
     text-decoration: none;
     transition: opacity 0.2s;
-
     color: #000;
 }
 
@@ -9,13 +8,6 @@
     opacity: 0.8;
 }
 
-.active{
+.active {
     border-bottom: solid;
-}
-.link:active {
-    border-bottom: 3px solid red;
-}
-
-.active:after {
-    border-bottom: 3px solid red;
 }
