@@ -63,4 +63,4 @@ class Api {
     }
 }
 
-export const api = new Api("http://hellchicken.ru");
+export const api = new Api("https://hellchicken.ru");
