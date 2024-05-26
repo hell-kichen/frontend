@@ -4,8 +4,10 @@ import styles from './style.module.css';
 interface LinkComponentProps {
     className?: any;
     href: string;
-    title: any;
+    title: string;
+    isActive: boolean;
 }
+
 
 export default function LinkComponent({href, title, className}: LinkComponentProps) {
     return (
