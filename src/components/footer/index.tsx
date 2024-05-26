@@ -4,9 +4,9 @@ import LinkComponent from '../../ui/link';
 
 export default function Footer() {
 
-    return(
+    return (
         <footer className={styles.footer}>
-            <LinkComponent href='#' title='Продуктовый помощник' isActive={false}/>
+            <LinkComponent href='/' title='Продуктовый помощник'/>
         </footer>
     );
 }

@@ -4,12 +4,14 @@ import styles from './style.module.css';
 interface ButtonProps {
     isPressed?: boolean;
     children: React.ReactNode;
-    btnStyle?: 'btnLight' | 'btnBlue' | 'btnLightUnsub';
+    btnStyle?: any;
+    modifier?: any;
     btnClick?: () => void;
-    href?: string
+    href?: string;
+    disabled?: boolean;
 }
 
-export default function Button({ children, isPressed, btnStyle = 'btnLight', btnClick, href }: ButtonProps) {
+export default function Button({ children, isPressed, btnStyle="btnLight", btnClick, href }: ButtonProps) {
 
     const styleMap: Record<string, string> = {
         'btnLight': styles.btnLight,

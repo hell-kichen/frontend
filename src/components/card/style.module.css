@@ -11,8 +11,8 @@
 
 .card__add {
     display: flex;
-    font-size: 14px!important;
-    font-weight: 600!important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
     align-items: center;
 }
 
@@ -40,6 +40,7 @@
 .card__item {
     margin-right: 8px;
 }
+
 .card__text {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -50,6 +51,7 @@
     margin: 0 0 15px;
     padding: 0;
 }
+
 .card__text:last-child {
     margin-bottom: 0;
 }
@@ -64,8 +66,8 @@
 .card__title {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 25px;
     line-height: 24px;
     color: #000000;
     margin: 0 0 12px;
@@ -88,4 +90,25 @@
 .card__time svg,
 .card__author svg {
     margin-right: 10px;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .card__image {
+        height: 160px;
+    }
+
+    .card__body {
+        padding: 12px;
+    }
+
+    .card__footer {
+        padding: 12px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card {
+        max-width: 100%;
+    }
 }
