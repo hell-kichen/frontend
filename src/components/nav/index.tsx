@@ -7,7 +7,7 @@ interface NavProps {
     loggedIn: boolean;
 }
 
-export default function Nav({loggedIn}: NavProps) {
+export default function Nav ({loggedIn}: NavProps) {
     return (
         <nav className={styles.nav}>
             <div className={styles.nav__container}>
