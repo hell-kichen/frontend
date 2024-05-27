@@ -1,38 +1,29 @@
+import {UserDTO} from "../users/models";
+import {Tag} from "../tags/models";
+
+export interface IngredientInRecipeDTO {
+    id: number,
+    name: string,
+    measurement_unit: string,
+    amount: number
+}
+
+export interface RecipeDTO {
+    id: number,
+    tags: Tag[],
+    author: UserDTO,
+    ingredients: IngredientInRecipeDTO[],
+    is_favorited: boolean,
+    is_in_shopping_cart: boolean,
+    name: string,
+    image: string,
+    text: string,
+    cooking_time: number
+}
+
 export interface Recipes {
     count: number,
     next: string,
     previous: string,
-    results: [{
-        id: string,
-        tags: [
-            {
-                id: string,
-                name: string,
-                color: string,
-                slug: string
-            }
-        ],
-        author: {
-            id: string,
-            email: string,
-            username: string,
-            first_name: string,
-            last_name: string,
-            is_subscribed: boolean
-        },
-        ingredients: [
-            {
-                id: string,
-                name: string,
-                measurement_unit: string,
-                amount: number
-            }
-        ],
-        is_favorited: boolean,
-        is_in_shopping_cart: boolean,
-        name: string,
-        image: string,
-        text: string,
-        cooking_time: number
-    }]
+    results: RecipeDTO[]
 }

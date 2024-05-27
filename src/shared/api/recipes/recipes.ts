@@ -1,14 +1,40 @@
 import {api} from "../base";
 import {Recipes} from "./models";
+import {Tag} from "../tags/models";
 
 const BASE_URL = "/api/recipes";
 
-export type GetRecipesListParams = {}
+export type GetRecipesListParams = {
+    page?: number;
+    limit?: number;
+    is_favorited?: number;
+    is_in_shopping_cart?: number;
+    author?: string;
+    tags?: Tag[];
+}
 
 export const getRecipes = (
-    params: GetRecipesListParams
-): Promise<{ results: Recipes[] }> => {
-    return api.get(BASE_URL, {params})
+    {
+        page = 1,
+        limit = 6,
+        tags,
+        author,
+        is_favorited = 0,
+        is_in_shopping_cart = 0,
+    }: GetRecipesListParams = {}
+): Promise<Recipes> => {
+    const token = localStorage.getItem('token')
+    const authorization = token ? {'authorization': `Token ${token}`} : {}
+    const tagsString = tags ? tags.map(tag => `&tags=${tag.slug}`).join('') : ''
+    return api.get(
+        `${BASE_URL}/?page=${page}&limit=${limit}${author ? `&author=${author}` : ''}${is_favorited ? `&is_favorited=${is_favorited}` : ''}${is_in_shopping_cart ? `&is_in_shopping_cart=${is_in_shopping_cart}` : ''}${tagsString}`,
+        {
+            headers: {
+                "Content-Type": "application/json",
+                ...authorization,
+            }
+        }
+    )
 }
 
 export type GetRecipesByIDParams = {
