@@ -1,16 +1,17 @@
 import {BrowserRouter, Route, Routes, useNavigate} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import './App.css';
+import styles from "./styles.module.css";
 import {MainPage, SingleCard} from "./pages";
 import {Footer, Header} from "./components";
 import {authApi, recipesApi, usersApi} from "./shared/api";
 import {SignupResponse} from "./shared/api/users/models";
+import {AuthContext, UserContext} from "./contexts";
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState<boolean | null>(null);
+    const [loggedIn, setLoggedIn] = useState<boolean>(false);
     const [user, setUser] = useState<SignupResponse | null>(null)
     const [orders, setOrders] = useState<number>(0)
-    const [menuToggled, setMenuToggled] = useState<boolean>(false)
 
     const navigate = useNavigate();
 
@@ -125,14 +126,50 @@ function App() {
     }, [])
 
     return (
-        <BrowserRouter>
-            <Header loggedIn={true} onSignOut={onSignOut}></Header>
-            <Routes>
-                <Route path="/" element={<MainPage/>}/>
-                <Route path="/recipes/:id" element={<SingleCard/>}/>
-            </Routes>
-            <Footer/>
-        </BrowserRouter>
+        <AuthContext.Provider value={loggedIn}>
+            <UserContext.Provider value={user}>
+                <BrowserRouter>
+                    <Header loggedIn={loggedIn} onSignOut={onSignOut}/>
+                    <Routes>
+                        <Route path="/" element={<MainPage updateOrders={updateOrders}/>}/>
+                        <Route
+                            path='/recipes/:id'
+                        >
+                            <SingleCard
+                                updateOrders={updateOrders}
+                            />
+                        </Route>
+
+                        <Route path='/recipes'>
+                            <MainPage
+                                updateOrders={updateOrders}
+                            />
+                        </Route>
+                        {/*<Route path='/signin'>*/}
+                        {/*    <SignIn*/}
+                        {/*        onSignIn={authorization}*/}
+                        {/*    />*/}
+                        {/*</Route>*/}
+                        {/*<Route path='/signup'>*/}
+                        {/*    <SignUp*/}
+                        {/*        onSignUp={registration}*/}
+                        {/*    />*/}
+                        {/*</Route>*/}
+                        <Route path='/'>
+                            {/*{loggedIn ? <MainPage*/}
+                            {/*    updateOrders={updateOrders}*/}
+                            {/*/> : <SignIn*/}
+                            {/*    onSignIn={authorization}*/}
+                            {/*/>}*/}
+                            <MainPage
+                                updateOrders={updateOrders}
+                            />
+                        </Route>
+                    </Routes>
+                    <Footer/>
+                </BrowserRouter>
+            </UserContext.Provider>
+        </AuthContext.Provider>
     );
 }
 

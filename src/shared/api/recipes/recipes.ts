@@ -1,5 +1,5 @@
 import {api} from "../base";
-import {Recipes} from "./models";
+import {AddRecipeToCartResponse, Recipes} from "./models";
 import {Tag} from "../tags/models";
 
 const BASE_URL = "/api/recipes";
@@ -46,4 +46,58 @@ export const getRecipeByID = (
     return api.get(`${BASE_URL}/${recipeID}`)
 }
 
+export const addToFavorites = (
+    {recipeID}: GetRecipesByIDParams
+): Promise<AddRecipeToCartResponse> => {
+    const token = localStorage.getItem('token')
+    const authorization = token ? {'authorization': `Token ${token}`} : {}
 
+    return api.post(`${BASE_URL}/${recipeID}/favorite/`, null, {
+        headers: {
+            "Content-Type": "application/json",
+            ...authorization,
+        }
+    })
+}
+
+export const removeFromFavorites = (
+    {recipeID}: GetRecipesByIDParams
+): Promise<any> => {
+    const token = localStorage.getItem('token')
+    const authorization = token ? {'authorization': `Token ${token}`} : {}
+
+    return api.delete(`${BASE_URL}/${recipeID}/favorite/`, {
+        headers: {
+            "Content-Type": "application/json",
+            ...authorization,
+        }
+    })
+}
+
+export const addToCart = (
+    {recipeID}: GetRecipesByIDParams
+): Promise<any> => {
+    const token = localStorage.getItem('token')
+    const authorization = token ? {'authorization': `Token ${token}`} : {}
+
+    return api.post(`${BASE_URL}/${recipeID}/shopping_cart/`, null, {
+        headers: {
+            "Content-Type": "application/json",
+            ...authorization,
+        }
+    })
+}
+
+export const removeFromCart = (
+    {recipeID}: GetRecipesByIDParams
+): Promise<any> => {
+    const token = localStorage.getItem('token')
+    const authorization = token ? {'authorization': `Token ${token}`} : {}
+
+    return api.delete(`${BASE_URL}/${recipeID}/shopping_cart/`, {
+        headers: {
+            "Content-Type": "application/json",
+            ...authorization,
+        }
+    })
+}

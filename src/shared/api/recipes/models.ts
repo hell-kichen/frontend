@@ -27,3 +27,10 @@ export interface Recipes {
     previous: string,
     results: RecipeDTO[]
 }
+
+export interface AddRecipeToCartResponse {
+    id: number,
+    name: string,
+    image: string,
+    cooking_time: number
+}

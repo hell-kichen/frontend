@@ -4,13 +4,27 @@ import {recipesApi} from '../../shared/api';
 import {CardList} from '../../modules';
 import {Card} from '../../components';
 import {Container, Main, Title} from "../../ui";
+import useRecipes from "../../utils/use-recipes";
 
-const MainPage = () => {
-    const [recipes, setRecipes] = useState<any>([]);
+const MainPage = ({updateOrders}: { updateOrders: any }) => {
+    const {
+        recipes,
+        setRecipes,
+        recipesCount,
+        setRecipesCount,
+        recipesPage,
+        setRecipesPage,
+        tagsValue,
+        setTagsValue,
+        handleTagsChange,
+        handleLike,
+        handleAddToCart
+    } = useRecipes()
 
     useEffect(() => {
         recipesApi.getRecipes({}).then((resp) => {
             setRecipes(resp.results);
+            setRecipesCount(resp.count)
         }).catch((error) => {
             console.error('Ошибка при получении списка рецептов:', error);
         });
