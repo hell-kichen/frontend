@@ -3,3 +3,5 @@ export * as ingredientsApi from "./ingredients";
 export * as recipesApi from "./recipes";
 export * as authApi from "./auth";
 export * as usersApi from "./users";
+export * as signUpApi from "./signup";
+

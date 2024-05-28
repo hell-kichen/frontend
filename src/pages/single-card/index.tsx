@@ -1,5 +1,6 @@
 import {useContext, useEffect, useState} from 'react';
 import {Button, Container, Icons, LinkComponent, Main} from "../../ui";
+import {TagsContainer} from "../../components";
 import Description from "./description";
 import Ingredients from "./ingredients";
 import styles from "./style.module.css";

@@ -2,11 +2,12 @@ import {BrowserRouter, Route, Routes, useNavigate} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import styles from "./styles.module.css";
-import {MainPage, SingleCard} from "./pages";
+import {MainPage, SignUp, SingleCard} from "./pages";
 import {Footer, Header} from "./components";
 import {authApi, recipesApi, usersApi} from "./shared/api";
 import {SignupResponse} from "./shared/api/users/models";
 import {AuthContext, UserContext} from "./contexts";
+
 
 function App() {
     const [loggedIn, setLoggedIn] = useState<boolean>(false);
