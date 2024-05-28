@@ -13,7 +13,7 @@ export {
     Header,
     Nav,
     CheckboxGroup,
-    IngredientsSearch
+    IngredientsSearch,
     Tag,
     TagsContainer
 }
