@@ -1,7 +1,7 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import React from 'react';
 import './App.css';
-import {MainPage, RecipeCreate, SingleCard, SignUp} from "./pages";
+import {MainPage, RecipeCreate, SingleCard, SignUp, SignIn} from "./pages";
 import {Footer, Header} from "./components";
 
 
@@ -18,6 +18,7 @@ function App() {
                 <Route path="/recipes/:id" element={<SingleCard/>}/>
                 <Route path="/recipes/create" element={<RecipeCreate/>}></Route>
                 <Route path="/signup" element={<SignUp/>}/>
+                <Route path="/signin" element={<SignIn/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>

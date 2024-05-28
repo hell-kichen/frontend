@@ -1,4 +1,4 @@
-import { Container, Input, Title, Main, Form, Button } from '../../ui'
+import {Container, Input, Title, Main, Form, Button} from '../../ui'
 import styles from './style.module.css'
 import React from "react";
 
@@ -7,12 +7,12 @@ export default function ChangePassword() {
         console.log(e.target.value);
     };
 
-    return(
+    return (
         <Main>
             <Container>
-                    <title>Изменить пароль</title>
-                    <meta name="description" content="Продуктовый помощник - Изменить пароль" />
-                    <meta property="og:title" content="Изменить пароль" />
+                <title>Изменить пароль</title>
+                <meta name="description" content="Продуктовый помощник - Изменить пароль"/>
+                <meta property="og:title" content="Изменить пароль"/>
                 <Title>Изменить пароль</Title>
                 <Form
                     className={styles.form}
@@ -36,7 +36,8 @@ export default function ChangePassword() {
                         onChange={handleChange}
                     />
                     <div className={styles.Info}>
-                        <p>Ваш пароль не должен совпадать с вашим именем или другой персональной информацией или быть слишком похожим на неё.</p>
+                        <p>Ваш пароль не должен совпадать с вашим именем или другой персональной информацией или быть
+                            слишком похожим на неё.</p>
                         <p>Ваш пароль должен содержать как минимум 8 символов.</p>
                         <p>Ваш пароль не может быть одним из широко распространённых паролей.</p>
                         <p>Ваш пароль не может состоять только из цифр.</p>
