@@ -8,7 +8,6 @@ interface LinkComponentProps {
     isActive?: boolean;
 }
 
-
 export default function LinkComponent({href, title, className}: LinkComponentProps) {
     return (
         <a className={`${styles.link} ${className}`} href={href}>

@@ -4,6 +4,8 @@ import Header from "./header";
 import Nav from "./nav";
 import CheckboxGroup from "./checkbox-group";
 import IngredientsSearch from "./ingredients-search";
+import Tag from "./tag";
+import TagsContainer from "./tags-container";
 
 export {
     Card,
@@ -12,4 +14,6 @@ export {
     Nav,
     CheckboxGroup,
     IngredientsSearch
+    Tag,
+    TagsContainer
 }

@@ -1,36 +1,23 @@
 import styles from './style.module.css';
-import {Button, Icons, LinkComponent} from '../../ui'
+import {Button, Icons, LinkComponent} from '../../ui';
+import {TagsContainer} from "../../components";
 import {useContext} from "react";
 import {AuthContext} from '../../contexts'
+
 
 interface CardProps {
     name?: string,
     id: string,
     image?: string,
     is_favorited?: boolean,
-    tags: [{}]
+    tags: [],
     is_in_shopping_cart?: boolean,
     cooking_time?: number,
     author: {
         id: string,
-        email: string,
-        username: string,
         first_name: string,
         last_name: string,
-        is_subscribed: boolean
-    },
-    ingredients: [
-        {
-            id: string,
-            name: string,
-            measurement_unit: string,
-            amount: number
-        }
-    ],
-    text?: string,
-    handleLike?: any,
-    handleAddToCart?: any,
-    updateOrders?: () => void
+    }
 }
 
 export default function Card({
@@ -41,12 +28,8 @@ export default function Card({
                                  is_favorited,
                                  is_in_shopping_cart,
                                  cooking_time,
-                                 author,
-                                 ingredients,
-                                 text,
-                                 handleLike,
-                                 handleAddToCart,
-                                 updateOrders
+                                 author
+
                              }: CardProps) {
     const authContext = useContext(AuthContext);
 
@@ -63,6 +46,7 @@ export default function Card({
                     href={`/recipes/${id}`}
                     title={name}
                 />
+                <TagsContainer tags={tags}/>
                 <div className={styles.card__time}>
                     <Icons.ClockIcon/> {cooking_time} мин.
                 </div>
