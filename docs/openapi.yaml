@@ -6,7 +6,7 @@ info:
 servers:
   - url: http://localhost:8080
     description: Local server
-  - url: http://hellchicken.ru
+  - url: https://hellchicken.ru
     description: prod
 
 paths:
@@ -42,13 +42,13 @@ paths:
                     type: string
                     nullable: true
                     format: uri
-                    example: http://foodgram.example.org/api/users/?page=4
+                    example: https://foodgram.example.org/api/users/?page=4
                     description: 'Ссылка на следующую страницу'
                   previous:
                     type: string
                     nullable: true
                     format: uri
-                    example: http://foodgram.example.org/api/users/?page=2
+                    example: https://foodgram.example.org/api/users/?page=2
                     description: 'Ссылка на предыдущую страницу'
                   results:
                     type: array
@@ -178,13 +178,13 @@ paths:
                     type: string
                     nullable: true
                     format: uri
-                    example: http://foodgram.example.org/api/recipes/?page=4
+                    example: https://foodgram.example.org/api/recipes/?page=4
                     description: 'Ссылка на следующую страницу'
                   previous:
                     type: string
                     nullable: true
                     format: uri
-                    example: http://foodgram.example.org/api/recipes/?page=2
+                    example: https://foodgram.example.org/api/recipes/?page=2
                     description: 'Ссылка на предыдущую страницу'
                   results:
                     type: array
@@ -518,13 +518,13 @@ paths:
                     type: string
                     nullable: true
                     format: uri
-                    example: http://foodgram.example.org/api/users/subscriptions/?page=4
+                    example: https://foodgram.example.org/api/users/subscriptions/?page=4
                     description: 'Ссылка на следующую страницу'
                   previous:
                     type: string
                     nullable: true
                     format: uri
-                    example: http://foodgram.example.org/api/users/subscriptions/?page=2
+                    example: https://foodgram.example.org/api/users/subscriptions/?page=2
                     description: 'Ссылка на предыдущую страницу'
                   results:
                     type: array
@@ -832,7 +832,7 @@ components:
           description: 'Название'
         image:
           description: 'Ссылка на картинку на сайте'
-          example: 'http://foodgram.example.org/media/recipes/images/image.jpeg'
+          example: 'https://foodgram.example.org/media/recipes/images/image.jpeg'
           type: string
           format: url
         text:
@@ -864,7 +864,7 @@ components:
           description: 'Название'
         image:
           description: 'Ссылка на картинку на сайте'
-          example: 'http://foodgram.example.org/media/recipes/images/image.jpeg'
+          example: 'https://foodgram.example.org/media/recipes/images/image.jpeg'
           type: string
           format: url
         cooking_time:

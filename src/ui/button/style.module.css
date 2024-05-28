@@ -1,6 +1,6 @@
 .btn {
     font-family: 'Californian FB', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
     border-radius: 6px;
     padding: 0 24px;
@@ -61,4 +61,13 @@ a.btn {
 .btnPressed:hover {
     background-color: #f0f3ff;
     color: #4a61dd;
+}
+
+@media screen and (max-width: 940px) {
+    .button {
+        font-size: 12px !important;
+        padding: 0 12px;
+        height: 32px;
+        line-height: 30px;
+    }
 }

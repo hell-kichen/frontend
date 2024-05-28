@@ -1,7 +1,10 @@
-.footer{
+.footer {
     color: white;
-    background-color: black;
+    background-color: #555e75;
     font-size: 20px;
-    padding: 35px;
-    padding-left: 120px;
+    padding: 35px 35px 35px 120px;
+}
+
+.footer a {
+    color: #fff;
 }

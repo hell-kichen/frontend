@@ -5,4 +5,14 @@ services:
     environment:
       NODE_ENV: production
     ports:
-      - 3000:3000
+      - "3000:3000"
+    volumes:
+      - ./:/app/result_build/
+  nginx:
+    image: nginx:1.19.3
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./build:/usr/share/nginx/html/
+#      - ../docs/:/usr/share/nginx/html/api/docs/
