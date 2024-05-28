@@ -12,7 +12,7 @@ function App() {
 
     return (
         <BrowserRouter>
-            <Header loggedIn={true} onSignOut={onSignOut}></Header>
+            <Header loggedIn={false} onSignOut={onSignOut}></Header>
             <Routes>
                 <Route path="/" element={<MainPage/>}/>
                 <Route path="/recipes/:id" element={<SingleCard/>}/>

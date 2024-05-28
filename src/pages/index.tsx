@@ -9,5 +9,5 @@ export {
     SingleCard,
     SignUp,
     SignIn,
-    RecipeCreate
+    RecipeCreate,
 }
