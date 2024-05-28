@@ -1,7 +1,7 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import React from 'react';
 import './App.css';
-import {MainPage, RecipeCreate, SingleCard, SignUp, SignIn} from "./pages";
+import {MainPage, RecipeCreate, SignIn, SignUp, SingleCard} from "./pages";
 import {Footer, Header} from "./components";
 
 
@@ -12,7 +12,7 @@ function App() {
 
     return (
         <BrowserRouter>
-            <Header loggedIn={false} onSignOut={onSignOut}></Header>
+            <Header loggedIn={true} onSignOut={onSignOut}></Header>
             <Routes>
                 <Route path="/" element={<MainPage/>}/>
                 <Route path="/recipes/:id" element={<SingleCard/>}/>

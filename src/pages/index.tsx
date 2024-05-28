@@ -8,7 +8,6 @@ export {
     MainPage,
     SingleCard,
     SignUp,
-    SignIn
+    SignIn,
     RecipeCreate
-    SignUp
 }
