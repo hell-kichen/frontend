@@ -1,6 +1,9 @@
-import React from "react";
+import AuthContext from "./auth-context";
+import RecipesContext from "./recipes-context";
+import UserContext from "./user-context";
 
-const AuthContext = React.createContext(undefined);
 export {
-    AuthContext
+    AuthContext,
+    RecipesContext,
+    UserContext,
 }

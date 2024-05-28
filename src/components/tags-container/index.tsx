@@ -1,26 +1,25 @@
-import styles from './style.module.css';
-import {Tag} from '../index';
 
-interface TagData {
-    id: string;
-    color: string;
-    name: string;
+import styles from './styles.module.css'
+import {Tag as TagDTO} from "../../shared/api/tags/models";
+import {Tag} from "../index";
+
+interface Props {
+    tags?: TagDTO[]
 }
 
-interface TagDataProps {
-    tags: TagData[]
-}
-
-export default function TagsContainer({tags}: TagDataProps) {
+const TagsContainer = ({tags}: Props) => {
     if (!tags) {
-        return null;
+        return null
     }
+    return <div className={styles['tags-container']}>
+        {tags.map(tag => {
+            return <Tag
+                key={tag.id}
+                color={tag.color}
+                name={tag.name}
+            />
+        })}
+    </div>
+}
 
-    return (
-        <div className={styles['tags-container']}>
-            {tags.map(tag => (
-                <Tag key={tag.id} color={tag.color} name={tag.name}/>
-            ))}
-        </div>
-    );
-};
+export default TagsContainer

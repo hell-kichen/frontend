@@ -1,27 +1,56 @@
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {Button, Container, Icons, LinkComponent, Main} from "../../ui";
 import {TagsContainer} from "../../components";
 import Description from "./description";
 import Ingredients from "./ingredients";
 import styles from "./style.module.css";
 import {recipesApi} from '../../shared/api';
+import {AuthContext, UserContext} from "../../contexts";
+import {useParams} from "react-router-dom";
+import TagsContainer from "../../components/tags-container";
+import useRecipe from "../../utils/use-recipe";
 
-export default function SingleCard() {
+interface Props {
+    updateOrders: any;
+}
+
+// @ts-ignore
+export default function SingleCard({updateOrders}: Props) {
     const url = window.location.pathname;
-    const id = url.substring(url.lastIndexOf('/') + 1);
+    // const id = url.substring(url.lastIndexOf('/') + 1);
 
-    const [recipe, setRecipe] = useState<any>([]);
+    const authContext = useContext(AuthContext)
+    const userContext = useContext(UserContext)
+
+    const {id} = useParams();
+
+    const {
+        recipe,
+        setRecipe,
+        handleLike,
+        handleAddToCart,
+        handleSubscribe
+    } = useRecipe()
+
+    // const [recipe, setRecipe] = useState<any>([]);
 
     useEffect(() => {
-        recipesApi.getRecipeByID({recipeID: id}).then((resp) => {
+        recipesApi.getRecipeByID({recipeID: id ? id : ""}).then((resp) => {
+            // @ts-ignore
             setRecipe(resp);
             console.log(resp);
         }).catch((error) => {
             console.error('Ошибка при получении рецепта:', error);
         });
     }, []);
+    // @ts-ignore
+    // @ts-ignore
     const {
-        author = {},
+        author = {
+            id: undefined,
+            first_name: undefined,
+            last_name: undefined,
+        },
         image,
         tags,
         cooking_time,
@@ -32,6 +61,9 @@ export default function SingleCard() {
         is_in_shopping_cart
     } = recipe;
 
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return (
         <Main>
             <Container>
@@ -43,11 +75,11 @@ export default function SingleCard() {
                     <div className={styles["single-card__info"]}>
                         <div className={styles["single-card__header-info"]}>
                             <h1 className={styles["single-card__title"]}>{name}</h1>
-                            <Button
+                            {authContext && <Button
                                 modifier='style_none'
                             >
                                 {is_favorited ? <Icons.StarBigActiveIcon/> : <Icons.StarBigIcon/>}
-                            </Button>
+                            </Button>}
                         </div>
                         <TagsContainer tags={tags}/>
                         <div>
@@ -60,16 +92,28 @@ export default function SingleCard() {
                                     className={styles['single-card__link']}
                                 />
                                 </div>
+                                {(userContext || {}).id === author.id && <LinkComponent
+                                    href={`${url}/edit`}
+                                    title='Редактировать рецепт'
+                                    className={styles['single-card__edit']}
+                                />}
                             </p>
                         </div>
                         <div className={styles['single-card__buttons']}>
-                            <Button
+                            {authContext && <Button
                                 btnStyle="btnBlue"
                                 modifier={is_in_shopping_cart ? 'style_light' : 'style_dark-blue'}
+                                btnClick={() => {
+                                    handleAddToCart({
+                                        id: id ? id : "",
+                                        toAdd: Number(!is_in_shopping_cart),
+                                        callback: updateOrders
+                                    })
+                                }}
                             ><>
                                 <Icons.PlusIcon stroke="#fff"/> Добавить в покупки
                             </>
-                            </Button>
+                            </Button>}
                             <Button
                                 btnStyle="btnLight"
                                 modifier='style_light-blue'
